@@ -25,7 +25,7 @@ class GalleryRequest extends FormRequest
     {
         return [
             'donation_campaigns_id' => 'required|integer|exists:donation_campaigns,id',
-            'image' => 'required|image'
+            'image'                 => 'required|image|mimes:jpeg,jpg,png|max:2048'
         ];
     }
 }

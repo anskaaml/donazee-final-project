@@ -18,24 +18,38 @@ use Illuminate\Support\Facades\Route;
 // });
 
 /* Donation Campaign */
-Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
-Route::get('/donation-detail/{id}', 'App\Http\Controllers\DonationDetailController@index')->name('donation-detail');
+Route::get('/home', 'App\Http\Controllers\HomeController@index')
+        ->name('home');
+
+Route::get('/donation-detail/{id}', 'App\Http\Controllers\DonationDetailController@index')
+        ->name('donation-detail');
 
 /* Fundraise */
-Route::resource('/fundraise', 'App\Http\Controllers\FundRaiseController');
-Route::resource('/image-upload', 'App\Http\Controllers\ImageUploadController');
+Route::get('/fundraise/create', 'App\Http\Controllers\FundraiseController@create')
+        ->name('fundraise-create');
 
+Route::post('/fundraise/store', 'App\Http\Controllers\FundraiseController@store')
+        ->name('fundraise-store');
 
+/* Image Upload */
+Route::get('/commitment/{id}', 'App\Http\Controllers\ImageUploadController@process')
+        ->name('commitment');
 
-/* Payment */
-Route::get('/payment/{id}', 'App\Http\Controllers\PaymentController@index')->name('payment');
-Route::post('/payment/{id}', 'App\Http\Controllers\PaymentController@process')->name('payment-process');
-Route::get('/payment/confirm/{id}', 'App\Http\Controllers\PaymentController@index')->name('payment-success');
-// Route::post('/payment/create/{detail_id}', 'App\Http\Controllers\PaymentController@process')->name('payment-create');
-// Route::get('/payment/remove/{detail_id}', 'App\Http\Controllers\PaymentController@index')->name('payment-remove');
+Route::post('/image/upload/{id}', 'App\Http\Controllers\ImageUploadController@upload')
+        ->name('image-upload');
+
+/* Transaction */
+Route::get('/transaction/{id}', 'App\Http\Controllers\DonateController@process')
+        ->middleware(['auth:sanctum', 'verified'])
+        ->name('transaction-process');
+
+Route::post('/transaction/donate/{id}', 'App\Http\Controllers\DonateController@donate')
+        ->middleware(['auth:sanctum', 'verified'])
+        ->name('transaction-donate');
 
 /* Admin */
-Route::get('/admin/dashboard', 'App\Http\Controllers\DashboardController@index')->name('admin-dashboard');
+Route::get('/admin/dashboard', 'App\Http\Controllers\DashboardController@index')
+        ->name('admin-dashboard');
 Route::resource('/admin/donation-campaign', 'App\Http\Controllers\DonationCampaignController');
 Route::resource('/admin/gallery', 'App\Http\Controllers\GalleryController');
 Route::resource('/admin/transaction', 'App\Http\Controllers\TransactionController');

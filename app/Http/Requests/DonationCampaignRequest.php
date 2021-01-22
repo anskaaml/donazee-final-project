@@ -24,13 +24,13 @@ class DonationCampaignRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|max:255',
-            'fundraiser_name' => 'required|max:255',
-            'target' => 'required|integer',
-            'deadline' => 'required|date',
-            'purpose' => 'required',
-            'receiver' => 'required|max:255',
-            'description' => 'required'
+            'title'             => 'required|max:255',
+            'fundraiser_name'   => 'required|max:255',
+            'target'            => 'required|integer',
+            'deadline'          => 'required|date',
+            'purpose'           => 'required',
+            'receiver'          => 'required|max:255',
+            'description'       => 'required'
         ];
     }
 }

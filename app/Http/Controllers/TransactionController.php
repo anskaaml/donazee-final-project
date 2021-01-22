@@ -16,7 +16,7 @@ class TransactionController extends Controller
     public function index()
     {
         $items = Transaction::with([
-            'details', 'donation_campaign', 'user'
+             'donation_campaign', 'user'
         ])->get();
 
         return view('admin.transaction.index', [
@@ -57,7 +57,7 @@ class TransactionController extends Controller
     public function show($id)
     {
         $item = Transaction::with([
-            'details', 'donation_campaign', 'user'
+            'donation_campaign', 'user'
         ])->findOrFail($id);
 
         return view('admin.transaction.detail', [

@@ -29,7 +29,7 @@
 									<a>{{ $item->title }}</a>
 								</h4>
 								<div class="w3l-pricehkj">
-									<h3>Rp 53500 dari Rp {{ $item->target }}</h3>
+									<h3>Rp 0 dari Rp {{ $item->target }}</h3>
                             		<div id="slider-range"></div>
 									<p>{{ $item->organization_name }} &nbsp
 										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
@@ -40,12 +40,9 @@
 									</p>
 									
 									<div class="snipcart-details">
-										@auth
-                                		<form action="{{ route('payment-process', $item->id) }}" method="post">
-											@csrf
-											<button class="button" name="submit" value="Donasi"type="submit">Donasi</button>
+                                		<form action="{{ route('transaction-process', $item->id) }}" method="get">
+											<input type="submit" name="submit" value="Donasi Sekarang" class="button">
 										</form>
-										@endauth
 									</div>
 
 							</div>

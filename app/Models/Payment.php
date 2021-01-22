@@ -6,15 +6,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDelete;
 use Illuminate\Database\Eloquent\Model;
 
-class Transaction extends Model
+class Payment extends Model
 {
-    use HasFactory;
+    use HasFactory; 
     protected $softDeletes = true;
 
     protected $fillable = [
         'donation_campaigns_id',
         'users_id',
-        'amount'
+        'fund_nominal'
     ];
 
     protected $hidden = [

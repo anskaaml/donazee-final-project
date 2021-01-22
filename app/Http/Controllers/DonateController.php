@@ -2,42 +2,43 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\Validator;
 
-use App\Models\DonationCampaign;
-use App\Models\Gallery;
+use Illuminate\Http\Request;
 
-class ImageUploadController extends Controller
+use App\Models\DonationCampaign;
+use App\Models\Transaction;
+
+class DonateController extends Controller
 {
     public function process(Request $request, $id){
         
         $item = DonationCampaign::findOrFail($id);
         
-        return view('fundraise.image-upload', [
+        return view('donation.donate', [
             'item' => $item
         ]);
     }
 
-    public function upload(Request $request, $id){
+    public function donate(Request $request, $id){
 
         $validate = Validator::make($request->all(), [
-            'image' => 'required|image|mimes:jpeg,jpg,png|max:2048'
+            'amount' => 'required'
         ]);
 
         if($validate->fails()){
             return back()->withErrors($validate)->withInput();
         }
 
-        $item = Gallery::create([
+        $item = Transaction::create([
             'donation_campaigns_id' => $id,
-            'image'                 => $request->file('image')->store('assets/gallery', 'public'),
+            'users_id'              => $request->user()->id,
+            'amount'                => intval($request->input('amount')),
         ]);
 
         $item->save();
 
-        return view('fundraise.confirmation', [
+        return view('donation.payment-detail', [
           'item' => $item  
         ]);
     }

@@ -10,7 +10,7 @@
 	<div class="featured-section" id="projects">
 		<div class="container">
 			<!-- tittle heading -->
-			<h3 class="tittle-w3l" style="text-align:center;">Detail Donasi<span class="heading-style"></span></h3>
+			<h3 class="tittle-w3l" style="text-align:center;">Form Penggalangan Dana<span class="heading-style"></span></h3>
 		</div>
         <div class="content-bottom-in">
         @if($errors->any())
@@ -27,7 +27,7 @@
 						<div class="card-campaign" style="width:50rem;">
 							<div class="product-name-w3l">
 								<div class="w3l-pricehkj">
-                            		<form action="{{ route('fundraise.store') }}" method="post" style="padding: 20px 20px 20px 20px;" >
+                            		<form action="{{ route('fundraise-store') }}" method="post" style="padding: 20px 20px 20px 20px;" >
                                     @csrf
                                     <!-- <h4>Kategori Donasi</h4>
                                         <div class="select-city">

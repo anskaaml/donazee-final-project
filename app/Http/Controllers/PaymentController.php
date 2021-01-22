@@ -2,72 +2,115 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-
 use App\Models\DonationCampaign;
-use App\Models\Transaction;
-use App\Models\TransactionDetail;
+use App\Models\Payment;
 
 class PaymentController extends Controller
 {
-    public function index(Request $request, $id){
+    protected $request;
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $donation_campaign = DonationCampaign::all();
+
+        return view('donation.payment', [
+            'donation_campaign' => $donation_campaign
+        ]);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $validator = \Validator::make(request()->all(), [
+            'fund_nominal'          => 'required|numeric'
+        ]);
         
-        $item = Transaction::with(['details', 'donation_campaign', 'user'])->findOrFail($id);
+        if($validator->fails()) {
+            return[
+                'status'    => 'error',
+                'message'   => $validator->errors()->first()
+            ];
+        }
 
-        return view('payment', [
-            'item' => $item
-        ]);
+        \DB::transaction(function(){
+            $payment = Payment::create([
+            'fund_nominal' => floatval($this->request->fund_nominal)
+            ]);
+
+            $payment->save();
+        });
+
+        
+        // $request->validate([
+        //     'fund_nominal' => 'required'
+        // ]);
+
+        return view('donation.payment-detail');
+
     }
 
-    public function process(Request $request, $id){
-
-        $donation_campaign = DonationCampaign::findOrFail($id);
-
-        $transaction = Transaction::create([
-            'donation_campaigns_id' => $id,
-            'users_id' => Auth::user()->id,
-            'fund_nominal' => 0,
-            'transaction_status' => 'PENDING'
-        ]);
-
-        TransactionDetail::create([
-            'transactions_id' => $transaction->id,
-            'name' => Auth::user()->name,
-            'payment_method' => 'BNI'
-        ]);
-
-        return redirect()->route('payment', $transaction->id);
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
     }
 
-    // public function create(Request $request, $id){
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
 
-    //     $request->validate([
-    //         'name' => 'required|string|exists:users,name',
-    //         'fund_nominal' => 'required'
-    //     ]);
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
 
-    //     $data = $request->all();
-    //     $data['transactions_id'] = $id;
-
-    //     TransactionDetail::create($data);
-
-    //     $transaction = Transaction::with(['donation_campaign'])->find($id);
-    //     $transaction->save();
-
-    //     return redirect()->route('payment', $id);
-    // }
-
-    // public function remove(Request $request, $detail_id){
-
-    //     $item = TransactionDetail::find($detail_id);
-
-    //     $transaction = Transaction::with(['details', 'donation_campaign', 'user'])->findOrFail($item->transactions_id);
-    //     $transaction->save();
-    //     $item->delete();
-
-    //     return redirect()->route('payment', $item->transactions_id);
-    // }
-
-    
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
 }
