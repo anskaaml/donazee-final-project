@@ -1,7 +1,7 @@
 @extends('layout.header-footer')
 
 @section('title')
-	CARE.IN
+	DonaZee
 @endsection
 
 @section('content')
@@ -19,11 +19,11 @@
 				<div class="container">
 					<div class="carousel-caption">
 						<h3>Bantuan
-							<span>Sembako</span>
+							<span>Hewan Satwa</span>
 						</h3>
-						<p>Kami membutuhkan lebih dari
-							<span>100.000</span> Sembako</p>
-						<a class="button2" href="">Donasi Sekarang</a>
+						<p>Kami membutuhkan kurang lebih
+							<span>Rp 35.000.000</span> Dana </p>
+						<!-- <a class="button2" href="">Donasi Sekarang</a> -->
 					</div>
 				</div>
 			</div>
@@ -35,7 +35,7 @@
 						</h3>
 						<p>Kami membutuhkan lebih dari 
 							<span>500.000</span> Kebutuhan Sehari-hari</p>
-						<a class="button2" href="">Donasi Sekarang</a>
+						<!-- <a class="button2" href="">Donasi Sekarang</a> -->
 					</div>
 				</div>
 			</div>
@@ -43,12 +43,11 @@
 				<div class="container">
 					<div class="carousel-caption">
 						<h3>Bantuan
-							<span>Korban Bencana</span>
+							<span>Sembako dan <br> Alat Medis</span>
 						</h3>
 						<p>Kami membutuhkan lebih dari
-							<span>1.000.000</span> Makanan 
+							<span>1.000.000</span> Kebutuhan Pokok  
 						</p>
-						<a class="button2" href="">Donasi Sekarang</a>
 					</div>
 				</div>
 			</div>
@@ -66,6 +65,42 @@
 
 	<div class="ads-grid">
 		<div class="featured-section" id="projects">
+			<!-- footer second section -->
+			<div class="w3l-grids-footer">
+				<div class="col-xs-4 offer-footer">
+					<div class="col-xs-4 icon-fot">
+						<span class="fa fa-users" aria-hidden="true"></span>
+					</div>
+					<div class="col-xs-8 text-form-footer">
+						<h3>3</h3>
+						<h4>Donatur Terdaftar</h4>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="col-xs-4 offer-footer">
+					<div class="col-xs-4 icon-fot">
+						<span class="fa fa-money" aria-hidden="true"></span>
+					</div>
+					<div class="col-xs-8 text-form-footer">
+						<h3>Rp 0</h3> 
+						<h4>Dana Yang Terkumpul</h4>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="col-xs-4 offer-footer">
+					<div class="col-xs-4 icon-fot">
+						<span class="fa fa-th" aria-hidden="true"></span>
+					</div>
+					<div class="col-xs-8 text-form-footer">
+						<h3>4</h3>
+						<h4>Campaign Donasi</h4>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<!-- //footer second section -->
+
 			<div class="container">
 				<!-- tittle heading -->
 				<h3 class="tittle-w3l">Campaign Donasi<span class="heading-style"></span></h3>

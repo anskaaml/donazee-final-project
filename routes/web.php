@@ -26,6 +26,7 @@ Route::get('/donation-detail/{id}', 'App\Http\Controllers\DonationDetailControll
 
 /* Fundraise */
 Route::get('/fundraise/create', 'App\Http\Controllers\FundraiseController@create')
+        ->middleware(['auth:sanctum', 'verified'])
         ->name('fundraise-create');
 
 Route::post('/fundraise/store', 'App\Http\Controllers\FundraiseController@store')
@@ -50,10 +51,13 @@ Route::post('/transaction/donate/{id}', 'App\Http\Controllers\DonateController@d
 /* Admin */
 Route::get('/admin/dashboard', 'App\Http\Controllers\DashboardController@index')
         ->name('admin-dashboard');
-Route::resource('/admin/donation-campaign', 'App\Http\Controllers\DonationCampaignController');
-Route::resource('/admin/gallery', 'App\Http\Controllers\GalleryController');
-Route::resource('/admin/transaction', 'App\Http\Controllers\TransactionController');
 
+Route::resource('/admin/donation-campaign', 'App\Http\Controllers\DonationCampaignController');
+        
+Route::resource('/admin/gallery', 'App\Http\Controllers\GalleryController');
+        
+Route::resource('/admin/transaction', 'App\Http\Controllers\TransactionController');
+       
 /* Auth */
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

@@ -63,10 +63,10 @@
                                     <h4>Tujuan Penggalangan Dana</h4>    
                                         <input type="text" id="purpose" name="purpose" value="{{ old('purpose') }}" style="margin:10px 0px 20px 0px;">
 
-                                    <h4>Ditujukan Untuk (Pribadi / Keluarga / Organisasi / Yayasan / Komunitas)</h4>  
+                                    <h4>Ditujukan Untuk (Pribadi / Keluarga / Organisasi / Yayasan / Komunitas / Lainnya)</h4>  
                                         <input type="text" id="receiver" name="receiver" value="{{ old('receiver') }}" style="margin:10px 0px 20px 0px;">
 
-                                    <h4>Nama Organisasi / Yayasan / Komunitas Penggalang</h4>  
+                                    <h4>Nama Organisasi / Yayasan / Komunitas Penggalang / Lainnya</h4>  
                                         <input type="text" id="organization_name" name="organization_name" value="{{ old('organization_name') }}" style="margin:10px 0px 20px 0px;">
 
                                     <h4>Deskripsi Penggalangan Dana</h4>      

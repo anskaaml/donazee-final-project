@@ -239,7 +239,7 @@
 								<i class="fa fa-phone"></i> +593 2134 2564</li>
 							<li>
 								<i class="fa fa-envelope-o"></i>
-								<a href="mailto:example@mail.com"> yayaysan-carein@gmail.com</a>
+								<a href="donazee@gmail.com"> donazee@gmail.com</a>
 							</li>
 						</ul>
 					</div>

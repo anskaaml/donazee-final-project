@@ -19,7 +19,7 @@
 								<div class="w3l-pricehkj">
 								  	<form action="{{ route('commitment', $item->id) }}" method="get" enctype="multipart/form-data">
                                     @csrf
-									<h4>Dengan ini Care.In akan memastikan bahwa data penggalngan dana asli kebenarannya dan
+									<h4>Dengan ini <b>DonaZee</b> akan memastikan bahwa data penggalngan dana asli kebenarannya dan
 										diterima oleh penerima, baik dengan memverifikasi, monitoring dana, hingga kunjungan langsung
 										ke lapangan jika diperlukan
 									</h4>

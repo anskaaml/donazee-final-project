@@ -14,7 +14,7 @@
 		</div>
         <div class="content-bottom-in">
 			<div class="w3l-specilamk">
-				<div class="row-card">
+				<div class="row-card" style="display:flex;align-items:center; justify-content:center;">
 					<div class="column-card">
 						<div class="card-campaign" style="margin-bottom:50px;">
 							<div class="speioffer-agile">

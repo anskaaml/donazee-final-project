@@ -36,7 +36,6 @@
                         <th>Campaign Donasi</th>
                         <th>User</th>
                         <th>Nominal Dana</th>
-                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -45,10 +44,9 @@
                     @foreach($items as $item)
                    <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $item->donation_campaign->title }}</td>
+                        <td>{{ $item->donation_campaigns_id }}</td>
                         <td>{{ $item->user->name }}</td>
-                        <td>{{ $item->fund_nominal }}</td>
-                        <td>{{ $item->transaction_status }}</td>                        
+                        <td>{{ $item->amount }}</td>                       
                         <td>
                             <a href="{{ route('transaction.show', $item->id) }}" class="btn btn-primary">
                                 <i class="fa fa-eye"></i>

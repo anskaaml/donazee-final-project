@@ -977,6 +977,7 @@ h3.tittle-w3l {
     color: #000;
     font-size: 3em;
     text-align: center;
+    margin-top: 50px;
     margin-bottom: 50px;
     position: relative;
     padding-bottom: 20px;
@@ -1342,7 +1343,7 @@ p.footer-main span {
 .icon-fot span {
     font-size: 33px;
     line-height: 2.1;
-    color: #FF5722;
+    color: #57ccc3;
 }
 .text-form-footer{
     padding:0;

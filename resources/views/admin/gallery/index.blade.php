@@ -36,7 +36,7 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Gallery</th>
+                        <th>Campaign Donasi</th>
                         <th>Gambar</th>
                         <th>Action</th>
                     </tr>
@@ -46,7 +46,7 @@
                     @foreach($items as $item)
                    <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $item->donation_campaign->title }}</td>
+                        <td>{{ $item->donation_campaigns_id }}</td>
                         <td>
                             <img src="{{ Storage::url($item->image) }}" style="width:150px" class="img-thumbnail" />
                         </td>
