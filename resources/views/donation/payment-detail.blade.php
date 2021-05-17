@@ -26,12 +26,8 @@
                             </div>
 						</div>
 							<div class="card-info" style="margin-top:50px;">
-								<div class="product-name-w3l" style="text-align:center;">
-                                    <h7>Rekening A/N DonaZee - Surabaya</h7>
-                                    	<h2 style="padding:20px 0px 20px 0px;">
-                                            <img src="{{ asset('images/bni.png') }}" style="width:100px; height:50px;">
-                                                686454737
-                                        </h2>
+								<div class="product-name-w3l" style="text-align:center;padding:20px 0px 20px 0px;">  
+									<input type="submit" name="submit" value="Bayar Sekarang" class="button">
 								</div>
 							</div>
 						</div>
