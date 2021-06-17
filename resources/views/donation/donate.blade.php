@@ -60,7 +60,7 @@
 													<a>Nominal Dana Lainnya</a>
 												</h4>
 											<div class="w3l-pricehkj">
-                                            	<form action="{{ route('transaction-donate', $item->id) }}" method="post">
+                                            	<form action="{{ route('transaction-donate', $transaction->id) }}" method="get">
 												@csrf
                                     				<input type="number" id="amount" name="amount" min="10000" style="margin: 100px 0px 100px 0px; height: 50px;">
 												<div class="snipcart-details" style="margin: 100px 0px 10px 0px;">

@@ -16,6 +16,7 @@
         "laravel/jetstream": "^1.6",
         "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.5",
+        "laravel/vapor-cli": "^1.20",
         "livewire/livewire": "^2.0",
         "midtrans/midtrans-php": "^2.3"
     },

@@ -44,7 +44,7 @@ Route::get('/transaction/{id}', 'App\Http\Controllers\DonateController@process')
         ->middleware(['auth:sanctum', 'verified'])
         ->name('transaction-process');
 
-Route::post('/transaction/donate/{id}', 'App\Http\Controllers\DonateController@donate')
+Route::get('/transaction/donate/{id}', 'App\Http\Controllers\DonateController@donate')
         ->middleware(['auth:sanctum', 'verified'])
         ->name('transaction-donate');
 
