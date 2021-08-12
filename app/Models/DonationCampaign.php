@@ -36,4 +36,10 @@ class DonationCampaign extends Model
         return $this->hasMany(Transaction::class, 'donation_campaigns_id', 'id');
     }
 
+    public function funds(){
+        return $this->hasMany(Fund::class, 'donation_campaigns_id', 'id');
+    }
+
+
+
 }

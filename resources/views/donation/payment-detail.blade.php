@@ -27,7 +27,7 @@
 						</div>
 							<div class="card-info" style="margin-top:50px;">
 								<div class="product-name-w3l" style="text-align:center;padding:20px 0px 20px 0px;"> 
-									<form action="{{ route('transaction-donate') }}" method="get"> 
+									<form action="{{ route('transaction-donate') }}" method="post"> 
 										<input type="submit" name="submit" value="Bayar Sekarang" class="button">
 									</form>
 								</div>

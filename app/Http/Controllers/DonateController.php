@@ -86,9 +86,5 @@ class DonateController extends Controller
             catch(Exception $e){
                 echo $e->getMessage('Error');
         }
-
-        // return view('donation.payment-detail', [
-        //   'item' => $item  
-        // ]);
     }
 }

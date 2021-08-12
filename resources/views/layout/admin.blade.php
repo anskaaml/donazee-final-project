@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Donazee Admin Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('admin/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -60,25 +60,12 @@
                         <a class="collapse-item" href="{{ route('donation-campaign.index') }}">Campaign Donasi</a>
                         <a class="collapse-item" href="{{ route('gallery.index') }}">Galeri</a>
                         <a class="collapse-item" href="{{ route('transaction.index') }}">Transaksi</a>
+                        <a class="collapse-item" href="{{ route('fund.index') }}">Bukti Transfer</a>
                         <div class="collapse-divider"></div>
                         <!-- <a class="collapse-item" href="404.html">404 Page</a>
                         <a class="collapse-item" href="blank.html">Blank Page</a> -->
                     </div>
                 </div>
-            </li>
-
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
             </li>
 
             <!-- Divider -->

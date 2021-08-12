@@ -29,7 +29,7 @@
 									<a>{{ $item->title }}</a>
 								</h4>
 								<div class="w3l-pricehkj">
-									<h3>Rp 0 dari Rp {{ $item->target }}</h3>
+									<h3>Butuh Dana Rp {{ $item->target }}</h3>
                             		<div id="slider-range"></div>
 									<p>{{ $item->organization_name }} &nbsp
 										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
@@ -44,8 +44,20 @@
 											<input type="submit" name="submit" value="Donasi Sekarang" class="button">
 										</form>
 									</div>
-
 							</div>
+						</div>
+					</div>
+					<div class="card-info" style="margin-top:50px; height:20rem;">
+						<div class="product-name-w3l">
+							<h4>
+								<a>Bukti Transfer</a>
+							</h4>
+							<br>
+								<div class="embed-responsive embed-responsive-16by9">
+									@if($item->funds->count())
+										<img class="card-img embed-responsive-item" data-enlargeable width="100" style="cursor: zoom-in" src="{{ Storage::url($item->funds->first()->image) }}">
+									@endif
+								</div>
 						</div>
 					</div>
 			</div>
@@ -62,28 +74,57 @@
 										<div class="card-info" style="margin-top:50px; height:10rem;">
 											<div class="product-name-w3l">
 												<h4>
-													<a>Dekripsi Donasi</a>
+													<a>Penerima Dana</a>
+												</h4>
+													<p>{{ $item->receiver }}</p>
+											</div>
+										</div>
+										<div class="card-info" style="margin-top:50px; height:29rem;">
+											<div class="product-name-w3l">
+												<h4>
+													<a>Deskripsi Donasi</a>
 												</h4>
 													<p>{{ $item->description }}</p>
 											</div>
 										</div>
-										<div class="card-info" style="margin-top:50px; height:30rem;">
-											<div class="product-name-w3l">
-												<h4>
-													<a>Donasi Yang Masuk</a>
-												</h4>
-													<p><img class="ava-user" src="{{ asset('images/user-anonim.png') }}" alt="ava user">&nbsp M. Fahrizal donasi Rp 10.000</p>											
-													<p><img class="ava-user" src="{{ asset('images/user-anonim.png') }}" alt="ava user">&nbsp Salsa Amelia Dwi donasi Rp 25.000</p>
-													<p><img class="ava-user" src="{{ asset('images/user-anonim.png') }}" alt="ava user">&nbsp Anggita Hana donasi Rp 10.000</p>
-													<p><img class="ava-user" src="{{ asset('images/user-anonim.png') }}" alt="ava user">&nbsp Rudi Harsalim donasi Rp 100.000</p>
-													<p><img class="ava-user" src="{{ asset('images/user-anonim.png') }}" alt="ava user">&nbsp Purwanto donasi Rp 20.000</p>
-													<p><img class="ava-user" src="{{ asset('images/user-anonim.png') }}" alt="ava user">&nbsp Riniati Fatma donasi Rp 15.000</p>
-											</div>
-										</div>
+										
 									</div>
 				</div>
 		</div>
     </div>
 </div>
+
+<!-- Image Fullscrean On Click --> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+$('img[data-enlargeable]').addClass('img-enlargeable').click(function() {
+  var src = $(this).attr('src');
+  var modal;
+
+  function removeModal() {
+    modal.remove();
+    $('body').off('keyup.modal-close');
+  }
+  modal = $('<div>').css({
+    background: 'RGBA(0,0,0,.5) url(' + src + ') no-repeat center',
+    backgroundSize: 'contain',
+    width: '100%',
+    height: '100%',
+    position: 'fixed',
+    zIndex: '10000',
+    top: '0',
+    left: '0',
+    cursor: 'zoom-out'
+  }).click(function() {
+    removeModal();
+  }).appendTo('body');
+  //handling ESC
+  $('body').on('keyup.modal-close', function(e) {
+    if (e.key === 'Escape') {
+      removeModal();
+    }
+  });
+});
+</script>
 
 @endsection

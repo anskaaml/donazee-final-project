@@ -1,7 +1,7 @@
 @extends('layout.header-footer')
 
 @section('content')
-
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 <div class="ads-grid">
@@ -24,7 +24,7 @@
 									<a>{{ $item->title }}</a>
 								</h4>
 								<div class="w3l-pricehkj">
-									<h3>Rp 0 dari Rp {{ $item->target }}</h3>
+									<h3>Dibutuhkan Dana Rp {{ $item->target }}</h3>
                             		<div id="slider-range"></div>
 									<p>{{ $item->organization_name }} &nbsp
 										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
@@ -38,29 +38,13 @@
 					</div>
 				</div>
 									<div class="column-card">
-										<div class="card-info">
-											<div class="product-name-w3l">
-												<h4 style="padding-bottom:10px">
-													<a>Silahkan Pilih Nominal Dana</a>
-												</h4>
-                                            </div>
-                                            <div class="input-group">
-    				                            <div id="radioBtn" class="btn-group">
-    					                            <a class="btn btn-primary btn-sm active" data-toggle="nominal" data-title="10000">Rp 10.000</a>
-                                                    <a class="btn btn-primary btn-sm notActive" data-toggle="nominal" data-title="20000">Rp 20.000</a>
-                                                    <a class="btn btn-primary btn-sm notActive" data-toggle="nominal" data-title="50000">Rp 50.000</a>
-                                                    <a class="btn btn-primary btn-sm notActive" data-toggle="nominal" data-title="100000">Rp 100.000</a>
-    				                            </div>
-    				                                <input type="hidden" name="10000" id="10000">
-    			                            </div>
-										</div>
 										<div class="card-info" style="margin-top:50px; height:15rem;">
 											<div class="product-name-w3l">
 												<h4 style="padding-bottom:10px">
-													<a>Nominal Dana Lainnya</a>
+													<a>Masukkan Nominal Dana</a>
 												</h4>
 											<div class="w3l-pricehkj">
-                                            	<form action="{{ route('transaction-donate', $transaction->id) }}" method="get">
+                                            	<form action="{{ route('transaction-donate', $item->id) }}" method="POST">
 												@csrf
                                     				<input type="number" id="amount" name="amount" min="10000" style="margin: 100px 0px 100px 0px; height: 50px;">
 												<div class="snipcart-details" style="margin: 100px 0px 10px 0px;">

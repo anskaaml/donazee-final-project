@@ -72,7 +72,7 @@
 						<span class="fa fa-users" aria-hidden="true"></span>
 					</div>
 					<div class="col-xs-8 text-form-footer">
-						<h3>3</h3>
+						<h3>1</h3>
 						<h4>Donatur Terdaftar</h4>
 					</div>
 					<div class="clearfix"></div>
@@ -92,7 +92,7 @@
 						<span class="fa fa-th" aria-hidden="true"></span>
 					</div>
 					<div class="col-xs-8 text-form-footer">
-						<h3>4</h3>
+						<h3>3</h3>
 						<h4>Campaign Donasi</h4>
 					</div>
 					<div class="clearfix"></div>
@@ -126,7 +126,7 @@
 									<a>{{ $item->title }}</a>
 								</h4>
 								<div class="w3l-pricehkj">
-									<h3>Rp {{ $item-> target }}</h3>
+									<h3>Dibutuhkan Dana Rp {{ $item-> target }}</h3>
 									<p>{{ $item-> organization_name }}</p>
 								</div>	
 							</div>

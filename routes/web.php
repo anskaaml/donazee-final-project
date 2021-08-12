@@ -44,12 +44,13 @@ Route::get('/transaction/{id}', 'App\Http\Controllers\DonateController@process')
         ->middleware(['auth:sanctum', 'verified'])
         ->name('transaction-process');
 
-Route::get('/transaction/donate/{id}', 'App\Http\Controllers\DonateController@donate')
+Route::post('/transaction/donate/{id}', 'App\Http\Controllers\DonateController@donate')
         ->middleware(['auth:sanctum', 'verified'])
         ->name('transaction-donate');
 
 /* Admin */
 Route::get('/admin/dashboard', 'App\Http\Controllers\DashboardController@index')
+        ->middleware(['auth:sanctum', 'verified'])
         ->name('admin-dashboard');
 
 Route::resource('/admin/donation-campaign', 'App\Http\Controllers\DonationCampaignController');
@@ -57,8 +58,17 @@ Route::resource('/admin/donation-campaign', 'App\Http\Controllers\DonationCampai
 Route::resource('/admin/gallery', 'App\Http\Controllers\GalleryController');
         
 Route::resource('/admin/transaction', 'App\Http\Controllers\TransactionController');
+
+Route::resource('/admin/fund', 'App\Http\Controllers\FundController');
        
 /* Auth */
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+
+/* Midtrans */
+Route::post('/payment/callback', 'App\Http\Controllers\MidtransController@notificationHandler');
+Route::get('/payment/finish', 'App\Http\Controllers\MidtransController@finishRedirect');
+Route::get('/payment/unfinish', 'App\Http\Controllers\MidtransController@unfinishRedirect');
+Route::get('/payment/error', 'App\Http\Controllers\MidtransController@errorRedirect');

@@ -1,7 +1,7 @@
 @extends('layout.header-footer')
 
 @section('title')
-	Upload Gambar / Foto
+	Komitmen 
 @endsection
 
 @section('content')
@@ -13,16 +13,18 @@
 		</div>
         <div class="content-bottom-in">
 			<div class="w3l-specilamk">
-                <div class="row-card" style="display:flex;align-items:center; justify-content:center;">
-						<div class="card-campaign" style="width:40rem;">
+                <div class="row-card" style="display:flex;align-items:center; justify-content:center; ">
+						<div class="card-campaign" style="width:30rem;">
 							<div class="product-name-w3l">
 								<div class="w3l-pricehkj">
 								  	<form action="{{ route('commitment', $item->id) }}" method="get" enctype="multipart/form-data">
                                     @csrf
-									<h4>Dengan ini <b>DonaZee</b> akan memastikan bahwa data penggalngan dana asli kebenarannya dan
-										diterima oleh penerima, baik dengan memverifikasi, monitoring dana, hingga kunjungan langsung
-										ke lapangan jika diperlukan
-									</h4>
+										<h4>Dengan ini kami akan memastikan bahwa data penggalangan dana asli kebenarannya dan
+											diterima oleh penerima, baik melalui verifikasi data serta monitoring dana ke penerima</h4>
+
+										<div class="embed-responsive embed-responsive-16by9">
+								   			<img class="card-img embed-responsive-item" src="{{ asset('images/commitment.png') }}">  
+										</div>
 										<br>
                                         <div class="snipcart-details">
                                     	    <input type="submit" name="submit" value="Setuju" class="button" style="height:50px;" />

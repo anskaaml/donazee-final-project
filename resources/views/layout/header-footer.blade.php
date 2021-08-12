@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zxx">
-
+<link rel="icon" type="image/png" href="{{ asset('images/logo-app.png') }}">
 <head>
 	<script>
 		addEventListener("load", function () {
@@ -65,59 +65,6 @@
 								<li>
 									<a class="nav-stylehead" href="about.html">Tentang Kami</a>
 								</li>
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle nav-stylehead" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Donasi
-										<span class="caret"></span>
-									</a>
-									<ul class="dropdown-menu multi-column columns-3">
-										<div class="agile_inner_drop_nav_info">
-											<div class="col-sm-4 multi-gd-img">
-												<ul class="multi-column-dropdown">
-													<li>
-														<a href="product.html">Pendidikan</a>
-													</li>
-													<li>
-														<a href="product.html">Lingkungan</a>
-													</li>
-													<li>
-														<a href="product.html">Kegiatan Sosial</a>
-													</li>
-													<li>
-														<a href="product.html">Bencana Alam</a>
-													</li>
-													<li>
-														<a href="product.html">Balita dan Anak Sakit</a>
-													</li>
-													<li>
-														<a href="product.html">Medis dan Kesehatan</a>
-													</li>
-													<li>
-														<a href="product.html">Peduli Hewan</a>
-													</li>
-												</ul>
-											</div>
-											<div class="col-sm-4 multi-gd-img">
-												<ul class="multi-column-dropdown">
-													<li>
-														<a href="product.html">Rumah Ibadah</a>
-													</li>
-													<li>
-														<a href="product.html">Difabel</a>
-													</li>
-													<li>
-														<a href="product.html">Zakat</a>
-													</li>
-													<li>
-														<a href="product.html">Panti Asuhan</a>
-													</li>
-													<li>
-														<a href="product.html">Kemanusiaan</a>
-													</li>
-												</ul>
-											</div>
-										</div>
-									</ul>
-								</li>
 								<li>
 									<a href="{{ route('fundraise-create') }}" role="button" aria-haspopup="true" aria-expanded="false">Galang Dana</a>
 									<ul class="dropdown-menu multi-column columns-3">
@@ -129,7 +76,7 @@
 								<li>
 								@if(Route::has('login'))
 									@auth
-									<a class="nav-stylehead" href="{{ url('/dashboard') }}">Akun</a>
+									<a class="nav-stylehead" href="{{ url('/dashboard') }}">Profile</a>
 										@else
 										<a class="nav-stylehead" href="{{ route('login') }}">Login</a>
 								</li>
@@ -273,37 +220,7 @@
 			</div>
 			<!-- //footer third section -->
 		
-				<!-- payment -->
-				<div class="sub-some child-momu">
-					<h5>Metode Pembayaran</h5>
-					<ul>
-						<li>
-							<img src="{{ asset('images/pay2.png') }}" alt="">
-						</li>
-						<li>
-							<img src="{{ asset('images/pay5.png') }}" alt="">
-						</li>
-						<li>
-							<img src="{{ asset('images/pay1.png') }}" alt="">
-						</li>
-						<li>
-							<img src="{{ asset('images/pay4.png') }}" alt="">
-						</li>
-						<li>
-							<img src="{{ asset('images/pay6.png') }}" alt="">
-						</li>
-						<li>
-							<img src="{{ asset('images/pay3.png') }}" alt="">
-						</li>
-						<li>
-							<img src="{{asset('images/pay7.png') }}" alt="">
-						</li>
-						<li>
-							<img src="{{ asset('images/pay8.png') }}" alt="">
-						</li>
-					</ul>
-				</div>
-				<!-- //payment -->
+			
 			</div>
 			<!-- //footer fourth section (text) -->
 		</div>

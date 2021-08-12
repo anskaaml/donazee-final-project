@@ -836,7 +836,8 @@ input#amount,input#amount1 {
 	padding: 25px 15px;
 }
 /*-- //Slider range --*/
-/*-- check input --*/
+
+/*-- Check Input --*/
 .left-side ul li {
     display: inline-block;
     width: 100%;

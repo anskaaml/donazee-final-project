@@ -6,14 +6,17 @@
 
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-2 text-gray-800">Transaksi</h1>
+    <h1 class="h3 mb-2 text-gray-800">Fund Disbursement</h1>
+        <a href="{{ route('fund.create') }}" class="btn btn-sm btn-primary shadow-sm">
+            <i class="fa fa-plus fa-sm text-white-50"></i>Tambah Bukti Tranfer
+        </a>
 </div>
 <p class="mb-4"></p>
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Data Transaksi</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Data Bukti Transfer</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -34,9 +37,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Campaign Donasi</th>
-                        <th>User</th>
-                        <th>Nominal Dana</th>
-                        <th>Status Transaksi</th>
+                        <th>Gambar</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -46,14 +47,14 @@
                    <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $item->donation_campaigns_id }}</td>
-                        <td>{{ $item->user->name }}</td>
-                        <td>{{ $item->amount }}</td>
-                        <td>{{ $item->transaction_status }}</td>                       
                         <td>
-                            <a href="{{ route('transaction.edit', $item->id) }}" class="btn btn-info">
+                            <img src="{{ Storage::url($item->image) }}" style="width:150px" class="img-thumbnail" />
+                        </td>
+                        <td>
+                            <a href="{{ route('fund.edit', $item->id) }}" class="btn btn-info">
                                 <i class="fa fa-pencil-alt"></i>
                             </a>
-                            <form action="{{ route('transaction.destroy', $item->id) }}" method="post" class="d-inline">
+                            <form action="{{ route('fund.destroy', $item->id) }}" method="post" class="d-inline">
                                 @csrf
                                 @method('delete')
                                 <button class="btn btn-danger">

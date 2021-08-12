@@ -5,7 +5,7 @@
 <div class="container-fluid">
 
 <!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800">Ubah Transaksi</h1>
+<h1 class="h3 mb-2 text-gray-800">Ubah Bukti Transfer</h1>
 <p class="mb-4"></p>
 
     @if($errors->any())
@@ -23,16 +23,24 @@
         <h6 class="m-0 font-weight-bold text-primary">Data</h6>
     </div>
     <div class="card-body">
-        <form action="{{ route('donation-campaign.update', $item->id) }}" method="post">
+        <form action="{{ route('fund.update', $item->id) }}" method="post" enctype="multipart/form-data">
         @method('PUT')
         @csrf
         <div class="form-group">
-            <label for="title">Nominal Dana</label>
-            <input type="text" class="form-control" name="amount" value="{{ $item->amount }}">
+            <label for="donation_campaigns_id">Campaign Donasi</label>
+            <select name="donation_campaigns_id" required class="form-control">
+                        {{ $item->donation_campaigns_id }} 
+                @foreach($donation_campaigns as $donation_campaign)
+                    <option value="{{ $donation_campaign->id }}">
+                        {{ $donation_campaign->title }}                    
+                    </option>
+                @endforeach
+            </select>
         </div>
         <div class="form-group">
-            <label for="funraiser_name">Status Transaksi</label>
-            <input type="text" class="form-control" name="transaction_status" value="{{ $item->transaction_status }}">
+            <label for="image">Upload Bukti Transfer</label>
+            <input type="file" name="image">
+        </div>
             <button type="submit" class="btn btn-primary btn-block">Ubah</button>
         </form>
     </div>
